@@ -14,15 +14,20 @@ return the equivalent of the sentence when capitalised. E.g
 // }
 
 // forEach and splitting and joining combo:
+// function capSentence(text) {
+//   let words = text.toLowerCase().split(" ") // separate each word into an ind str
+//   let capitalized = []
+//   words.forEach(word => {
+//     capitalized.push(word[0].toUpperCase() + word.slice(1))
+//   })
+//   return capitalized.join(" "); //empty space is the separator
+// }
+
+// Using map and slice:
 function capSentence(text) {
-  let words = text.toLowerCase().split(" ") // separate each word into an ind str
-  let capitalized = []
-  words.forEach(word => {
-    capitalized.push(word[0].toUpperCase() + word.slice(1))
-  })
-  return capitalized.join(" "); //empty space is the separator
+  return text.toLowerCase().split(" ").map((word, index) => {
+    return word[0].toUpperCase() + word.slice(1)
+  }).join(" ")
 }
 
-
-console.log(capSentence("hi my name is karen"))
 module.exports = capSentence
