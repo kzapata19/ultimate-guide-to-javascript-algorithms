@@ -40,13 +40,21 @@ Pseudocode:
 // }
 
 // Using reduce:
-function longestWord(text) {
-    let wordsArray = text.split(" ");
-   return wordsArray.reduce((longestWord, currentWord) => {
-    if(currentWord.length > longestWord.length) longestWord = currentWord
-    return longestWord
-   }, "")
+// function longestWord(text) {
+//     let wordsArray = text.split(" ");
+//    return wordsArray.reduce((longestWord, currentWord) => {
+//     if(currentWord.length > longestWord.length) longestWord = currentWord
+//     return longestWord
+//    }, "")
 
+// }
+
+// Using sort:
+function longestWord(text) {
+    let wordsArray = text.split(" ")
+    let sortedArray = wordsArray.sort((word1, word2) => word2.length - word1.length)
+    console.log(sortedArray)
+    return sortedArray[0];
 }
 
 module.exports = longestWord
