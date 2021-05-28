@@ -20,7 +20,7 @@ function capSentence(text) {
   words.forEach(word => {
     capitalized.push(word[0].toUpperCase() + word.slice(1))
   })
-  return capitalized.join(" ");
+  return capitalized.join(" "); //empty space is the separator
 }
 
 
