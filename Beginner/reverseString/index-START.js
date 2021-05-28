@@ -11,14 +11,23 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 //     return [...text].reverse().join("")
 // }
 
+// function reverseString(text) {
+//     let result = ""
+//     for(let i = text.length - 1; i >= 0; i--) {
+//         result += text[i]
+//     }
+//     return result;
+// }
+
+// We can also use for in loop (though will need to reference the index for the character: text[index])
+// Using the for of loop enables us to select the char without referencing the index
 function reverseString(text) {
     let result = ""
-    for(let i = text.length - 1; i >= 0; i--) {
-        result += text[i]
+    for (char of text) {
+        result = char + result;
     }
     return result;
-}
-
+}  
 
 
 module.exports = reverseString
