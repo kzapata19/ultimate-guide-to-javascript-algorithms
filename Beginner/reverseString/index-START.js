@@ -6,7 +6,9 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 
 
 function reverseString(text) {
-    // Code goes here
+    // return text.split("").reverse().join("")
+    // using ES6 spread operator:
+    return [...text].reverse().join("")
 }
 
 
