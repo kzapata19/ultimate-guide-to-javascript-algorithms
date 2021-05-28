@@ -24,10 +24,23 @@ return the equivalent of the sentence when capitalised. E.g
 // }
 
 // Using map and slice:
+// function capSentence(text) {
+//   return text.toLowerCase().split(" ").map(word => {
+//     return word[0].toUpperCase() + word.slice(1)
+//   }).join(" ")
+// }
+
+// Using map and replace:
 function capSentence(text) {
-  return text.toLowerCase().split(" ").map((word, index) => {
-    return word[0].toUpperCase() + word.slice(1)
+  let wordsArr = text.toLowerCase().split(" ")
+  return wordsArr.map(word => {
+    return word.replace(word[0], word[0].toUpperCase())
   }).join(" ")
 }
 
 module.exports = capSentence
+
+//performance: 
+// map/slice is the fastest
+// forEach (15% slower)
+// map/replace(29% slower)
