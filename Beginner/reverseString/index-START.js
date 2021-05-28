@@ -30,11 +30,17 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 // } 
 
 // Recursive solution
+// function reverseString(text) {
+//     // terminal case
+//     if(text === "") return ""
+//     else return reverseString(text.substr(1)) + text[0];
+// }
+
+// Using reduce
 function reverseString(text) {
-    // terminal case
-    if(text === "") return ""
-    else return reverseString(text.substr(1)) + text[0];
+    return text.split("").reduce((result, char) => char + result, "")
 }
+
 
 
 module.exports = reverseString
