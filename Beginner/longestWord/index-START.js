@@ -58,3 +58,6 @@ function longestWord(text) {
 }
 
 module.exports = longestWord
+
+// Performance:
+// for-loop and reduce solutions performed the fastest. Solution using sort is approx 83% slower than both methods.
