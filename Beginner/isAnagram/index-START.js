@@ -6,9 +6,28 @@ don't. E.g
 */
 
 
+function createCharMap(string) {
+    let charMap = {};
+    for(let char of string) {
+        //or use hasOwnProperty
+        if(!charMap[char]) charMap[char] = 1;
+        charMap[char]++
+    }
+    return charMap;
+}
 
 function isAnagram(stringA, stringB) {
-    // Code goes here
+   
+    if(stringA.length !== stringB.length) return false
+    else {
+        let strAmap = createCharMap(stringA)
+        let strBmap = createCharMap(stringB)
+        for(let charIdx in strAmap) {
+            if(strAmap[charIdx] !== strBmap[charIdx]) return false
+        }
+        return true;
+    }
+
 }
 
 
