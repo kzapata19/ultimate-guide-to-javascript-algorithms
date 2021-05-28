@@ -5,7 +5,12 @@ e.g vowelsCounter('anehizxcv') // will return 3
 
 
 function vowelsCounter(text) {
-    // Code goes here
+    let counter = 0;
+    let vowels = ["a", "e", "i", "o", "u"]
+    for(let char of text.toLowerCase()) {
+        if(vowels.includes(char)) counter++
+    }
+    return counter;
 }
 
 
