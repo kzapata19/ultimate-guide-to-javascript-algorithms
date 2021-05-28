@@ -24,4 +24,5 @@ function searchReplace(str, word, newWord) {
   return str.replace(regex, newWord)
 }
 
-console.log(searchReplace("hi there my name is Bellini", "Bellini", "Tuna"))
+//Performace:
+// Using replace alone is faster. Solution using regex combined with replace was approx. 72% slower
