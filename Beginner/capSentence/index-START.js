@@ -7,11 +7,20 @@ return the equivalent of the sentence when capitalised. E.g
 
 
 // forEach method:
+// function capSentence(text) {
+//   let camelCased = ""
+//   text.split(" ").forEach(word => camelCased += " " + word[0].toUpperCase() + word.slice(1) )
+//   return camelCased.slice(1); //remove the extra space in the beginning
+// }
 
+// forEach and splitting and joining combo:
 function capSentence(text) {
-  let camelCased = ""
-  text.split(" ").forEach(word => camelCased += " " + word[0].toUpperCase() + word.slice(1) )
-  return camelCased.slice(1); //remove the extra space in the beginning
+  let words = text.toLowerCase().split(" ") // separate each word into an ind str
+  let capitalized = []
+  words.forEach(word => {
+    capitalized.push(word[0].toUpperCase() + word.slice(1))
+  })
+  return capitalized.join(" ");
 }
 
 
