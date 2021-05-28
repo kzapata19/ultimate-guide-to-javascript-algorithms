@@ -21,13 +21,20 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 
 // We can also use for in loop (though will need to reference the index for the character: text[index])
 // Using the for of loop enables us to select the char without referencing the index
+// function reverseString(text) {
+//     let result = ""
+//     for (char of text) {
+//         result = char + result;
+//     }
+//     return result;
+// } 
+
+// Recursive solution
 function reverseString(text) {
-    let result = ""
-    for (char of text) {
-        result = char + result;
-    }
-    return result;
-}  
+    // terminal case
+    if(text === "") return ""
+    else return reverseString(text.substr(1)) + text[0];
+}
 
 
 module.exports = reverseString
