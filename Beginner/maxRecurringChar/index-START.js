@@ -14,27 +14,49 @@ e.g maxRecurringChar('aabacada') // will return 'a'
 // In order to be iterable, an object must implement the @@iterator method. The object (or one of the objects up its prototype chain) mush have a property with a Symbol.iterator key
 // Examples: Arrays, Maps, Strings, Set, and array-like objects (arguments or NodeList) 
 
-// the "in" loop will iterate over the enumerable properties of the object (in random order)
+// the "in" loop will iterate over the enumerable properties of the object (in random order). This includes properties in the Prototype chain.
+// Thus you must check that the property belongs to the object with the hasOwnProperty method. 
 
+// function maxRecurringChar(text) {
+//     let charMap = {}
+//     let maxOccurrences = 0
+//     let maxChar;
+//     for (let char of text) {
+//         // if(charMap.hasOwnProperty(char)) charMap[char]++;
+//         // else charMap[char] = 1;
+//         if(!charMap[char]) charMap[char] = 1;
+//         else charMap[char]++;
+//     }
+//     for (let char in charMap) {
+//         if(charMap[char] > maxOccurrences) {
+//             maxOccurrences = charMap[char]
+//             maxChar = char;
+//         }
+//     }
+//     return maxChar;
+// }
+
+// Creating arrays from the character map
+// Object.keys method will create an array with the keys listed in the order a normal loop would iterate through them
+// Object.values method will create an array with the values listed in the same order as a 'for in' loop would iterate through them
 function maxRecurringChar(text) {
     let charMap = {}
-    let maxOccurrences = 0
-    let maxChar;
-    for (let char of text) {
-        // if(charMap.hasOwnProperty(char)) charMap[char]++;
-        // else charMap[char] = 1;
-        if(!charMap[char]) charMap[char] = 1;
-        else charMap[char]++;
+    let charArray = []
+    let valuesArray = []
+    let maxCharValue = 0
+
+    for(let char of text) {
+        if(charMap.hasOwnProperty(char)) charMap[char]++
+        else charMap[char] = 1
     }
-    for (let char in charMap) {
-        if(charMap[char] > maxOccurrences) {
-            maxOccurrences = charMap[char]
-            maxChar = char;
-        }
-    }
-    return maxChar;
+    charArray = Object.keys(charMap)
+    valuesArray = Object.values(charMap)
+    maxCharValue = Math.max(...valuesArray)
+
+    return charArray[valuesArray.indexOf(maxCharValue)]
 }
 
-
+// The For...in iteration is the fastest with the Arrays method coming in second by about 30%
+// Application: this can be used for at a more advanced level in SEO to determine the keyword density in content
 
 module.exports = maxRecurringChar;
