@@ -38,7 +38,9 @@ E.g reverseString('algorithms') // should return 'smhtirogla'
 
 // Using reduce
 function reverseString(text) {
-    return text.split("").reduce((result, char) => char + result, "")
+    // return text.split("").reduce((result, char) => char + result, "")
+    // using the spread operator:
+    return [...text].reduce((result, char) => char + result, "")
 }
 
 
