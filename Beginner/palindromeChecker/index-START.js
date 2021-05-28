@@ -5,11 +5,19 @@ e.g palindromeChecker('racecar') // will return true
 
 
 
+// Using built-in methods toLowerCase, split, reverse, join
+// function palindromeChecker(text) {
+//     let lowercasedArr = text.toLowerCase().split("");
+//     let reversed = lowercasedArr.reverse().join("");
+//     return reversed === text;
+// }
 
+// Looping through and comparing characters:
 function palindromeChecker(text) {
     let lowercasedArr = text.toLowerCase().split("");
-    let reversed = lowercasedArr.reverse().join("");
-    return reversed === text;
+    return lowercasedArr.every((letter, index) => {
+        return letter === lowercasedArr[text.length - index - 1]
+    })
 }
 
 
