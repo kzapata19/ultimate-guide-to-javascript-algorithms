@@ -7,7 +7,9 @@ e.g palindromeChecker('racecar') // will return true
 
 
 function palindromeChecker(text) {
-    v// Code goes here
+    let lowercasedArr = text.toLowerCase().split("");
+    let reversed = lowercasedArr.reverse().join("");
+    return reversed === text;
 }
 
 
