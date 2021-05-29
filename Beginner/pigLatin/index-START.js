@@ -42,6 +42,23 @@ Pseduocode:
   - if start of text has only one consonant, then remove the consonant to the end and append "ay"
 - return translated text
 */
-function pigLatin(text) {
 
+
+// Imperative approach:
+function pigLatin(text) {
+  let vowels = ["a", "e", "i", "o", "u"]
+  let lowerCasedText = text.toLowerCase()
+  let index = 0, consonants = ""
+  
+  if(vowels.includes(lowerCasedText[0])) return lowerCasedText + "way"
+  
+  while(!vowels.includes(lowerCasedText[index])) {
+    consonants += lowerCasedText[index]
+    index++;
+  }
+  return lowerCasedText.slice(index) + consonants + "ay"
 }
+
+console.log(pigLatin("karen"))
+console.log(pigLatin("troy"))
+console.log(pigLatin("eddie"))
